@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>საინფორმაციო ვებსაიტი | Lesson 5</title>
+<style>
+  :root{
+    --main-color:#2c6e91;
+    --accent-color:#e8b64c;
+    --bg-color:#f5f7fa;
+    --text-color:#2b2b2b;
+    --th-bg:#2c6e91;
+    --td-bg:#eef4f8;
+  }
+
+  *{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+  }
+
+  body{
+    font-family:'Segoe UI', Arial, sans-serif;
+    background-color:var(--bg-color);
+    color:var(--text-color);
+    line-height:1.7;
+    padding-bottom:60px;
+  }
+
+  header{
+    background:linear-gradient(135deg, var(--main-color), #1b4f66);
+    padding:40px 20px;
+    text-align:center;
+  }
+
+  header h1{
+    color:#fff;
+    font-size:2.4rem;
+    letter-spacing:1px;
+    text-shadow:1px 1px 4px rgba(0,0,0,0.3);
+  }
+
+  header p.subtitle{
+    color:#dceaf2;
+    margin-top:10px;
+    font-size:1.1rem;
+  }
+
+  .image-row{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+    padding:40px 20px;
+    max-width:1100px;
+    margin:0 auto;
+  }
+
+  .image-row figure{
+    flex:1 1 280px;
+    max-width:320px;
+    text-align:center;
+    background:#fff;
+    padding:10px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:transform 0.3s ease;
+  }
+
+  .image-row figure:hover{
+    transform:translateY(-6px);
+  }
+
+  .image-row img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:8px;
+  }
+
+  .image-row figcaption{
+    margin-top:10px;
+    font-weight:600;
+    color:var(--main-color);
+  }
+
+  main{
+    max-width:900px;
+    margin:0 auto;
+    padding:20px 30px;
+  }
+
+  main p{
+    font-size:1.05rem;
+    margin-bottom:25px;
+    text-align:justify;
+  }
+
+  .table-wrapper{
+    display:flex;
+    justify-content:center;
+    margin:35px 0;
+  }
+
+  table{
+    border-collapse:collapse;
+    border:3px dashed var(--accent-color);
+    width:100%;
+    max-width:600px;
+    overflow:hidden;
+    border-radius:6px;
+  }
+
+  th, td{
+    border:2px dashed var(--accent-color);
+    padding:14px 18px;
+    text-align:center;
+  }
+
+  th{
+    background-color:var(--th-bg);
+    color:#fff;
+    font-size:1.05rem;
+  }
+
+  td{
+    background-color:var(--td-bg);
+    color:var(--text-color);
+  }
+
+  .feedback-section{
+    max-width:900px;
+    margin:40px auto 0;
+    padding:30px;
+    background:#fff;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    text-align:center;
+  }
+
+  .feedback-section h2{
+    color:var(--main-color);
+    margin-bottom:20px;
+    font-size:1.4rem;
+  }
+
+  .feedback-form{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+  }
+
+  .feedback-form label{
+    font-weight:600;
+  }
+
+  .feedback-form input[type="text"]{
+    padding:10px 14px;
+    border:2px solid var(--main-color);
+    border-radius:6px;
+    font-size:1rem;
+    width:260px;
+    max-width:80%;
+  }
+
+  .feedback-form button{
+    padding:10px 22px;
+    background-color:var(--main-color);
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    font-size:1rem;
+    cursor:pointer;
+    transition:background-color 0.3s ease;
+  }
+
+  .feedback-form button:hover{
+    background-color:#1b4f66;
+  }
+
+  #thanks{
+    margin-top:15px;
+    color:green;
+    font-weight:600;
+    display:none;
+  }
+
+  footer{
+    text-align:center;
+    margin-top:50px;
+    padding:20px;
+    color:#777;
+    font-size:0.9rem;
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <h1>კეთილი იყოს თქვენი მობრძანება ჩვენს საინფორმაციო ვებსაიტზე</h1>
+    <p class="subtitle">გაეცანით საინტერესო მასალას ფოტოებთან და ტექსტთან ერთად</p>
+  </header>
+
+  <section class="image-row">
+    <figure>
+      <img src="https://picsum.photos/id/1015/400/300" alt="ბუნება 1">
+      <figcaption>მთები და ბუნება</figcaption>
+    </figure>
+    <figure>
+      <img src="https://picsum.photos/id/1016/400/300" alt="ბუნება 2">
+      <figcaption>ტბა და ხედი</figcaption>
+    </figure>
+    <figure>
+      <img src="https://picsum.photos/id/1018/400/300" alt="ბუნება 3">
+      <figcaption>ხეობა</figcaption>
+    </figure>
+  </section>
+
+  <main>
+    <p>
+      ეს საიტი შექმნილია საგანმანათლებლო მიზნით, რათა ვაჩვენოთ თუ როგორ შეიძლება
+      HTML-ისა და CSS-ის საშუალებით შეიქმნას სტრუქტურირებული, ინფორმატიული და
+      ვიზუალურად მიმზიდველი ვებგვერდი. გვერდზე გამოყენებულია სხვადასხვა ელემენტი:
+      სათაურები, სურათები, პარაგრაფები, ცხრილი და ფორმის ელემენტები, რომლებიც ერთად
+      ქმნის სრულყოფილ მომხმარებლის გამოცდილებას.
+    </p>
+
+    <div class="table-wrapper">
+      <table>
+        <tr>
+          <th>თვისება</th>
+          <th>აღწერა</th>
+          <th>მნიშვნელობა</th>
+        </tr>
+        <tr>
+          <td>დიზაინი</td>
+          <td>თანამედროვე და მარტივი</td>
+          <td>მაღალი</td>
+        </tr>
+        <tr>
+          <td>შინაარსი</td>
+          <td>ინფორმაციული ტექსტი</td>
+          <td>საშუალო</td>
+        </tr>
+      </table>
+    </div>
+
+    <p>
+      ვებგვერდის შექმნისას გამოყენებულია <strong>flexbox</strong> ტექნოლოგია სამი
+      სურათის ერთ რიგში, თანაბრად განლაგებისთვის. ასევე გამოყენებულია <strong>dashed</strong>
+      სტილის ჩარჩო ცხრილისთვის, რათა ვიზუალურად გამოვყოთ იგი დანარჩენი კონტენტისგან.
+      იმედი გვაქვს, გვერდი თქვენთვის სასარგებლო და საინტერესო აღმოჩნდება.
+    </p>
+  </main>
+
+  <section class="feedback-section">
+    <h2>რამდენად მოგწონთ ჩვენი საიტი?</h2>
+    <form class="feedback-form" onsubmit="showThanks(event)">
+      <label for="rating">თქვენი შეფასება:</label>
+      <input type="text" id="rating" name="rating" placeholder="მაგ: ძალიან მომწონს" required>
+      <button type="submit">გაგზავნა</button>
+    </form>
+    <p id="thanks">გმადლობთ თქვენი შეფასებისთვის!</p>
+  </section>
+
+  <footer>
+    &copy; 2026 საინფორმაციო ვებსაიტი — Lesson 5
+  </footer>
+
+  <script>
+    function showThanks(e){
+      e.preventDefault();
+      document.getElementById('thanks').style.display = 'block';
+      document.getElementById('rating').value = '';
+    }
+  </script>
+
+</body>
+</html>
