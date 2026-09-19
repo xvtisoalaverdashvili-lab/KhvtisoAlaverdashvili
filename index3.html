@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pulse | Sign in</title>
+  <style>
+    :root {
+      --ink: #18231f;
+      --muted: #77817d;
+      --paper: #f4f3ee;
+      --mint: #d8f36e;
+      --coral: #ff7651;
+      --line: #d9ddd5;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Arial, sans-serif;
+    }
+    .auth-shell {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      width: min(960px, 100%);
+      min-height: 590px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 24px 70px rgba(24, 35, 31, .14);
+    }
+    .intro {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px;
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .logo { font-weight: 800; letter-spacing: .12em; }
+    .logo span {
+      display: inline-grid;
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--mint);
+      color: var(--ink);
+    }
+    .intro h1 {
+      max-width: 360px;
+      margin: 0;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: .9;
+      letter-spacing: -.08em;
+    }
+    .intro h1 em { color: var(--coral); font-style: normal; }
+    .intro p { max-width: 260px; color: #b5c0ba; line-height: 1.6; }
+    .number { color: var(--mint); font-size: 4rem; font-weight: 800; }
+    .form-panel { padding: 64px clamp(28px, 7vw, 84px); }
+    .form-panel h2 { margin: 0 0 10px; font-size: 2.5rem; letter-spacing: -.06em; }
+    .form-panel > p { margin: 0 0 38px; color: var(--muted); }
+    form { display: grid; gap: 20px; }
+    label { display: grid; gap: 8px; color: var(--ink); font-size: .82rem; font-weight: 700; }
+    input {
+      width: 100%;
+      padding: 15px 14px;
+      border: 1px solid var(--line);
+      border-radius: 0;
+      outline: none;
+      color: var(--ink);
+      font: inherit;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    input:focus { border-color: var(--ink); box-shadow: 0 0 0 3px var(--mint); }
+    .password-wrap { position: relative; }
+    .password-wrap input { padding-right: 66px; }
+    .show-password {
+      position: absolute;
+      top: 50%;
+      right: 12px;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transform: translateY(-50%);
+    }
+    .form-row { display: flex; justify-content: space-between; gap: 12px; align-items: center; font-size: .8rem; }
+    .form-row a { color: var(--ink); font-weight: 700; }
+    .remember { display: flex; align-items: center; gap: 8px; color: var(--muted); font-weight: 400; }
+    .remember input { width: auto; accent-color: var(--ink); }
+    .submit {
+      padding: 16px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: #fff;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 700;
+      transition: background .2s, color .2s, transform .2s;
+    }
+    .submit:hover { background: var(--coral); transform: translateY(-2px); }
+    .signup { margin-top: 28px; color: var(--muted); text-align: center; font-size: .86rem; }
+    .signup a { color: var(--ink); font-weight: 700; }
+    .message { min-height: 20px; margin: 0; color: var(--coral); font-size: .82rem; }
+
+    @media (max-width: 700px) {
+      body { padding: 0; place-items: stretch; }
+      .auth-shell { grid-template-columns: 1fr; min-height: 100vh; }
+      .intro { min-height: 290px; padding: 28px; }
+      .intro h1 { font-size: 3.6rem; }
+      .intro p { display: none; }
+      .number { font-size: 2.5rem; }
+      .form-panel { padding: 42px 28px; }
+    }
+  </style>
+  </style>
+</head>
+<body>
+  <main class="auth-shell">
+    <section class="intro">
+      <div class="logo"><span>+</span> PULSE</div>
+      <div>
+        <h1>Keep your<br><em>rhythm.</em></h1>
+        <p>Sign in to continue your daily movement and keep your progress going.</p>
+      </div>
+      <div class="number">01</div>
+    </section>
+
+    <section class="form-panel">
+      <h2>Welcome back.</h2>
+      <p>Enter your details to access your account.</p>
+      <form id="login-form">
+        <label for="email">EMAIL ADDRESS
+          <input id="email" name="email" type="email" placeholder="you@example.com" required>
+        </label>
+        <label for="password">PASSWORD
+          <span class="password-wrap">
+            <input id="password" name="password" type="password" placeholder="Enter your password" minlength="6" required>
+            <button class="show-password" type="button" aria-label="Show password">Show</button>
+          </span>
+        </label>
+        <div class="form-row">
+          <label class="remember"><input type="checkbox" name="remember"> Remember me</label>
+          <a href="#forgot">Forgot password?</a>
+        </div>
+        <button class="submit" type="submit">Sign in <span aria-hidden="true">&rarr;</span></button>
+        <p class="message" id="message" role="status"></p>
+      </form>
+      <p class="signup">New to Pulse? <a href="#signup">Create an account</a></p>
+    </section>
+  </main>
+
+  <script>
+    const form = document.querySelector('#login-form');
+    const password = document.querySelector('#password');
+    const toggle = document.querySelector('.show-password');
+    const message = document.querySelector('#message');
+
+    toggle.addEventListener('click', () => {
+      const isPassword = password.type === 'password';
+      password.type = isPassword ? 'text' : 'password';
+      toggle.textContent = isPassword ? 'Hide' : 'Show';
+      toggle.setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password');
+    });
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      message.textContent = 'Form is ready. Connect it to your login service next.';
+    });
+  </script>
+</body>
+</html>
