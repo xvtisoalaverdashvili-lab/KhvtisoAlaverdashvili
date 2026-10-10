@@ -1,138 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raul Iqbal - portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MedicalBetter | A Great Place to Receive Care</title>
+  <meta name="description" content="MedicalBetter is a modern clinic focused on helping you and your child. Book an online appointment and meet our specialist doctors.">
+  <meta name="keywords" content="medical clinic, online appointment, doctor consultation, emergency care, pediatrician, specialist doctors, book appointment, health care">
+  <meta name="author" content="MedicalBetter">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#2e3467">
+
+  <meta property="og:title" content="MedicalBetter | A Great Place to Receive Care">
+  <meta property="og:description" content="Book an online appointment and meet our specialist doctors.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/index.html">
+  <meta property="og:image" content="https://example.com/images/og-cover.jpg">
+  <meta property="og:site_name" content="MedicalBetter">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{--navy:#2e3467;--navy-dark:#232851;--green:#6cc46a;--green-dark:#4fa84d;--text:#2b2f4a;--muted:#6b7090;--bg:#f6f7fb;--red:#e5484d}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:"Poppins","Segoe UI",Arial,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    :focus-visible{outline:3px solid #f2b705;outline-offset:2px}
+    .wrap{width:min(1100px,92%);margin-inline:auto}
+
+    /* page switching */
+    body[data-page="home"] .only-contact{display:none}
+    body[data-page="contact"] .only-home{display:none}
+
+    /* header + hero */
+    .top{background:var(--navy);color:#fff}
+    .nav-bar{display:flex;align-items:center;gap:2rem;padding-block:1.1rem;flex-wrap:wrap}
+    .logo{font-weight:700;font-size:1.2rem;margin-right:auto}
+    .nav{display:flex;gap:1.75rem;list-style:none;font-size:.95rem}
+    .nav a{opacity:.85;padding-bottom:3px;border-bottom:2px solid transparent}
+    .nav a:hover,.nav a[aria-current="page"]{opacity:1;border-color:var(--green)}
+    .btn{display:inline-block;background:var(--green);color:#fff;font:inherit;font-weight:600;border:2px solid var(--green);border-radius:8px;padding:.65rem 1.5rem;cursor:pointer}
+    .btn:hover{background:var(--green-dark);border-color:var(--green-dark)}
+    .btn-line{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+    .btn-line:hover{background:rgba(255,255,255,.12);border-color:#fff}
+    .hero{padding-block:3.5rem 5rem}
+    .hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+    .eyebrow{color:var(--green);font-size:.85rem;font-weight:600;margin-bottom:.5rem}
+    .hero h1{font-size:clamp(2rem,4.5vw,3.1rem);line-height:1.2;margin-bottom:1rem}
+    .hero p:not(.eyebrow){opacity:.85;margin-bottom:1.75rem;max-width:42ch}
+    .hero .btns{display:flex;gap:1rem;flex-wrap:wrap}
+    .hero-img{aspect-ratio:4/3;border-radius:18px;background:linear-gradient(135deg,#8fb3d9,#dfeaf5);display:grid;place-items:center}
+    .hero-img svg{width:34%;opacity:.7}
+    .page-title{padding-block:2.5rem 3.5rem}
+    .page-title h1{font-size:2.2rem}
+
+    /* sections */
+    .section{padding-block:4.5rem}
+    .section h2{font-size:1.8rem;color:var(--navy);margin-bottom:.4rem}
+    .section .sub{color:var(--muted);max-width:55ch;margin-bottom:2.5rem}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
+    .card{background:#fff;border-radius:12px;padding:1.6rem;box-shadow:0 8px 28px rgba(46,52,103,.1)}
+    .card .ico{width:42px;height:42px;border-radius:10px;background:#e8ebff;margin-bottom:1rem}
+    .card h3{font-size:1rem;color:var(--navy);margin-bottom:.4rem}
+    .card p{font-size:.88rem;color:var(--muted)}
+    .card.active{background:var(--green)}
+    .card.active h3,.card.active p{color:#fff}
+    .card.active .ico{background:rgba(255,255,255,.3)}
+    .doctors{background:var(--bg)}
+    .doc{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 8px 28px rgba(46,52,103,.08)}
+    .doc .photo{position:relative;aspect-ratio:1/1;background:linear-gradient(135deg,#cfd8ee,#eef1fa)}
+    .badge{position:absolute;top:.6rem;left:.6rem;background:var(--red);color:#fff;font-size:.7rem;padding:.1rem .6rem;border-radius:4px}
+    .doc .body{padding:1rem 1.1rem 1.2rem}
+    .doc small{color:var(--green-dark);font-weight:600}
+    .doc h3{font-size:1rem;color:var(--navy)}
+    .doc p{font-size:.85rem;color:var(--muted);margin:.3rem 0 .6rem}
+    .doc .meta{display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:.8rem}
+    .doc .price{color:#3d4cd6;font-weight:600}
+    .btn-out{display:inline-block;border:1px solid var(--green);color:var(--green-dark);border-radius:20px;padding:.2rem 1rem;font-size:.82rem}
+    .btn-out:hover{background:var(--green);color:#fff}
+
+    /* contact form */
+    .contact{display:grid;grid-template-columns:1.4fr .8fr;gap:3rem}
+    fieldset{border:1px solid #dfe2f0;border-radius:12px;padding:1.6rem}
+    legend{font-weight:600;color:var(--navy);padding-inline:.5rem}
+    .field{margin-bottom:1rem}
+    .field label{display:block;font-weight:600;font-size:.9rem;margin-bottom:.25rem}
+    .req{color:var(--red)}
+    .field input,.field select,.field textarea{width:100%;font:inherit;padding:.6rem .8rem;border:1px solid #c5cae0;border-radius:8px;color:var(--text);background:#fff}
+    .field textarea{min-height:120px;resize:vertical}
+    .field input:user-invalid,.field textarea:user-invalid{border-color:var(--red)}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .consent{display:flex;gap:.6rem;margin-bottom:1.2rem;font-size:.9rem}
+    .info{background:var(--bg);border-radius:12px;padding:1.6rem;align-self:start}
+    .info h3{color:var(--navy);margin-bottom:.8rem}
+    .info p{margin-bottom:.7rem;color:var(--muted);font-size:.92rem}
+
+    /* footer */
+    .foot{background:var(--navy-dark);color:#c9cde6;padding-block:2rem;font-size:.9rem}
+    .foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+    @media(max-width:800px){.hero .wrap,.contact,.row{grid-template-columns:1fr}.nav-bar{gap:1rem}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
-<body>
-    <header class="hero" id="home">
-        <nav class="nav container">
-            <a href="#home" class="logo">raul iqbal</a>
-            <ul class="menu">
-                <li><a href="#about">about</a></li>
-                <li><a href="#services">what I do</a></li>
-                <li><a href="#work">work</a></li>
-                <li><a href="#contact">contact</a></li>
-            </ul>
-        </nav>
+<body data-page="home">
 
-        <div class="hero-body container">
-            <p class="label">front-end developer</p>
-            <h1>Hello, I'm Raul Iqbal</h1>
-            <p>I’m a front-end developer and UI/UX designer based in London, UK.</p>
+<!-- ========== HEADER (ორივე გვერდზე საერთო) ========== -->
+<div class="top">
+  <header class="wrap nav-bar">
+    <a class="logo" href="#home">MedicalBetter</a>
+    <nav aria-label="Main">
+      <ul class="nav">
+        <li><a href="#home" id="nav-home" aria-current="page">Home</a></li>
+        <li><a href="#appointment">Services</a></li>
+        <li><a href="#doctors">Doctors</a></li>
+        <li><a href="#contact" id="nav-contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn" href="#booking">Join us</a>
+  </header>
 
-            <div class="cta-row">
-                <a class="btn" href="#work">View work</a>
-                <a class="btn btn-ghost" href="#contact">Hire me</a>
-            </div>
-
-            <div class="socials">
-                <a href="#">in</a>
-                <a href="#">tw</a>
-                <a href="#">gh</a>
-            </div>
+  <!-- გვერდი 1: ჰერო -->
+  <section class="hero only-home">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">For better health</p>
+        <h1>A Great Place to Receive Care</h1>
+        <p>We are always fully focused on helping your child and you.</p>
+        <div class="btns">
+          <a class="btn" href="#booking">Book Now</a>
+          <a class="btn btn-line" href="#appointment">Learn More</a>
         </div>
-    </header>
+      </div>
+      <!-- სურათის დასამატებლად ჩაანაცვლეთ: <img src="hero.jpg" alt="Doctor using a microscope"> -->
+      <div class="hero-img" role="img" aria-label="Doctor using a microscope">
+        <svg viewBox="0 0 24 24" fill="#fff"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/></svg>
+      </div>
+    </div>
+  </section>
 
-    <main>
-        <section id="about" class="about container section">
-            <div class="about-img" aria-label="Profile art"></div>
+  <!-- გვერდი 2: სათაური -->
+  <div class="wrap page-title only-contact"><p class="eyebrow">Get in touch</p><h1>Book an Appointment</h1></div>
+</div>
 
-            <div class="about-copy">
-                <p class="label">about me</p>
-                <h2>Designing bold digital experiences</h2>
-                <h3>Creative frontend developer with a passion for product design.</h3>
-                <p>I'm a multidisciplinary designer and developer who enjoys turning complex ideas into simple, elegant interfaces. I focus on clean UX, strong branding, and thoughtful interactions that help brands stand out.</p>
-                <a class="btn" href="#contact">Let's talk</a>
-            </div>
-        </section>
+<main>
+  <!-- ========== გვერდი 1: მთავარი ========== -->
+  <div class="only-home">
+    <section class="section" id="appointment">
+      <div class="wrap">
+        <p class="eyebrow">Our services</p>
+        <h2>Online Appointment</h2>
+        <p class="sub">Choose the care you need and book a time that suits you in a few clicks.</p>
+        <div class="cards">
+          <article class="card"><div class="ico"></div><h3>Emergency Care</h3><p>Fast help for urgent cases, available during working hours.</p></article>
+          <article class="card"><div class="ico"></div><h3>Doctor Plan</h3><p>A personal treatment plan prepared by your doctor.</p></article>
+          <article class="card active"><div class="ico"></div><h3>Smooth Surgeons</h3><p>Experienced surgeons and a safe, well-organised process.</p></article>
+          <article class="card"><div class="ico"></div><h3>Book Now</h3><p>Pick a doctor and a date directly on our website.</p></article>
+        </div>
+      </div>
+    </section>
 
-        <section id="services" class="container section">
-            <p class="label center">what I do</p>
-            <h2 class="center">services</h2>
+    <section class="section doctors" id="doctors">
+      <div class="wrap">
+        <p class="eyebrow">Our team</p>
+        <h2>Our Doctors Specialize in You</h2>
+        <p class="sub">Meet specialists who treat every patient with time and attention.</p>
+        <div class="cards">
+          <article class="doc">
+            <div class="photo" role="img" aria-label="Dr. Anna Brown"><span class="badge">New</span></div>
+            <div class="body"><small>Therapist</small><h3>Dr. Anna Brown</h3><p>General check-ups and treatment plans.</p>
+              <div class="meta"><span>10 years</span><span class="price">$8.00</span></div><a class="btn-out" href="#booking">Learn More</a></div>
+          </article>
+          <article class="doc">
+            <div class="photo" role="img" aria-label="Dr. Mark Lee"><span class="badge">New</span></div>
+            <div class="body"><small>Cardiologist</small><h3>Dr. Mark Lee</h3><p>Heart health checks and ECG.</p>
+              <div class="meta"><span>15 years</span><span class="price">$12.00</span></div><a class="btn-out" href="#booking">Learn More</a></div>
+          </article>
+          <article class="doc">
+            <div class="photo" role="img" aria-label="Dr. Sara Klein"><span class="badge">New</span></div>
+            <div class="body"><small>Pediatrician</small><h3>Dr. Sara Klein</h3><p>Care for babies, kids and teens.</p>
+              <div class="meta"><span>9 years</span><span class="price">$9.00</span></div><a class="btn-out" href="#booking">Learn More</a></div>
+          </article>
+          <article class="doc">
+            <div class="photo" role="img" aria-label="Dr. John Reed"><span class="badge">New</span></div>
+            <div class="body"><small>Eye specialist</small><h3>Dr. John Reed</h3><p>Vision tests and eye treatment.</p>
+              <div class="meta"><span>12 years</span><span class="price">$10.00</span></div><a class="btn-out" href="#booking">Learn More</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </div>
 
-            <div class="services">
-                <article class="service">
-                    <div class="service-head">
-                        <div class="icon">01</div>
-                        <h3>UI/UX Design</h3>
-                    </div>
-                    <p>Creating user-centered interfaces that feel clean, intuitive, and conversion-focused.</p>
-                </article>
+  <!-- ========== გვერდი 2: კონტაქტი ========== -->
+  <div class="section only-contact">
+    <div class="wrap contact">
+      <form id="booking" action="#" method="post">
+        <fieldset>
+          <legend>Appointment form</legend>
+          <div class="row">
+            <div class="field"><label for="fn">First name <span class="req">*</span></label><input type="text" id="fn" name="first_name" autocomplete="given-name" required minlength="2"></div>
+            <div class="field"><label for="ln">Last name <span class="req">*</span></label><input type="text" id="ln" name="last_name" autocomplete="family-name" required minlength="2"></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="phone">Phone <span class="req">*</span></label><input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+995 5XX XX XX XX" pattern="[+0-9 ]{9,16}" required></div>
+            <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" autocomplete="email" placeholder="name@example.com"></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="service">Service <span class="req">*</span></label>
+              <select id="service" name="service" required>
+                <option value="" selected disabled>Choose</option>
+                <option>Emergency Care</option><option>Doctor Plan</option><option>Surgery</option><option>Consultation</option>
+              </select></div>
+            <div class="field"><label for="date">Preferred date <span class="req">*</span></label><input type="date" id="date" name="date" required></div>
+          </div>
+          <div class="field"><label for="msg">Message</label><textarea id="msg" name="message" maxlength="500" placeholder="Briefly describe your problem (optional)"></textarea></div>
+          <div class="consent"><input type="checkbox" id="consent" name="consent" required><label for="consent">I agree to the processing of my personal data <span class="req">*</span></label></div>
+          <button type="submit" class="btn">Send request</button>
+        </fieldset>
+      </form>
 
-                <article class="service">
-                    <div class="service-head">
-                        <div class="icon">02</div>
-                        <h3>Web Development</h3>
-                    </div>
-                    <p>Building responsive, high-performance websites with polished front-end code.</p>
-                </article>
+      <aside class="info" aria-labelledby="ci">
+        <h3 id="ci">Contact information</h3>
+        <p><strong>Address:</strong><br>1 Rustaveli Ave, Tbilisi</p>
+        <p><strong>Phone:</strong><br><a href="tel:+995322000000">+995 32 200 00 00</a></p>
+        <p><strong>Email:</strong><br><a href="mailto:info@example.com">info@example.com</a></p>
+        <p><strong>Working hours:</strong><br>Mon–Fri 09:00–20:00<br>Sat 10:00–16:00</p>
+      </aside>
+    </div>
+  </div>
+</main>
 
-                <article class="service">
-                    <div class="service-head">
-                        <div class="icon">03</div>
-                        <h3>Brand Identity</h3>
-                    </div>
-                    <p>Designing visual systems that communicate your story clearly and confidently.</p>
-                </article>
+<footer class="foot">
+  <div class="wrap"><p>&copy; 2026 MedicalBetter. All rights reserved.</p><p><a href="mailto:info@example.com">info@example.com</a></p></div>
+</footer>
 
-                <article class="service">
-                    <div class="service-head">
-                        <div class="icon">04</div>
-                        <h3>Landing Pages</h3>
-                    </div>
-                    <p>Optimized marketing pages built to improve engagement and drive action.</p>
-                </article>
-            </div>
-        </section>
+<!-- გვერდებს შორის გადართვა -->
+<script>
+  function route() {
+    var h = location.hash;
+    var isContact = (h === '#contact' || h === '#booking');
+    document.body.dataset.page = isContact ? 'contact' : 'home';
+    document.title = isContact
+      ? 'Contact & Book an Appointment | MedicalBetter'
+      : 'MedicalBetter | A Great Place to Receive Care';
+    document.getElementById('nav-home').toggleAttribute('aria-current', !isContact);
+    document.getElementById('nav-contact').toggleAttribute('aria-current', isContact);
+    if (isContact || !h || h === '#home') { window.scrollTo(0, 0); }
+    else { var el = document.querySelector(h); if (el) el.scrollIntoView(); }
+  }
+  window.addEventListener('hashchange', route);
+  route();
+</script>
 
-        <section id="work" class="container section">
-            <p class="label center">latest work</p>
-            <h2 class="center">projects</h2>
-
-            <div class="projects">
-                <article class="project">
-                    <div class="thumb thumb-1"></div>
-                    <div class="project-body">
-                        <h3>Brand refresh</h3>
-                        <a class="btn small-btn" href="#">View project</a>
-                    </div>
-                </article>
-
-                <article class="project">
-                    <div class="thumb thumb-2"></div>
-                    <div class="project-body">
-                        <h3>Mobile app design</h3>
-                        <a class="btn small-btn" href="#">View project</a>
-                    </div>
-                </article>
-
-                <article class="project">
-                    <div class="thumb thumb-3"></div>
-                    <div class="project-body">
-                        <h3>Ecommerce UI</h3>
-                        <a class="btn small-btn" href="#">View project</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section class="container section">
-            <div class="cta" id="contact">
-                <p class="label">contact</p>
-                <h3>Have any project in mind?</h3>
-                <a class="btn" href="mailto:hello@rauliqbal.com">Say hello</a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        © 2026 Raul Iqbal. All rights reserved.
-    </footer>
 </body>
 </html>
