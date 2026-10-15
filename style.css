@@ -1,0 +1,109 @@
+/* ===== CSS ცვლადები ===== */
+:root{--navy:#2e3467;--navy-d:#232851;--green:#6cc46a;--green-d:#2f7d2d;--ink:#2b2f4a;--muted:#5f6485;--bg:#f4f6fb;--red:#d93a40;--r:14px;--shadow:0 10px 30px rgba(46,52,103,.12);--font:"Poppins","Segoe UI",Arial,sans-serif;--head:"Playfair Display",Georgia,serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--ink);line-height:1.65;background:#fff}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+h1,h2,h3{font-family:var(--head);color:var(--navy);line-height:1.2}
+:focus-visible{outline:3px solid #f2b705;outline-offset:2px}
+.wrap{width:min(1100px,92%);margin-inline:auto}
+.section{padding-block:4rem}
+.alt{background:var(--bg)}
+.lead{color:var(--muted);max-width:60ch;margin:.5rem 0 2rem}
+.grad{background:linear-gradient(90deg,var(--green),#9be3ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+
+/* ===== Header + dropdown (flexbox) ===== */
+.site-header{background:var(--navy);color:#fff;position:sticky;top:0;z-index:50}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding-block:.9rem;flex-wrap:wrap}
+.logo{font-family:var(--head);font-weight:700;font-size:1.4rem}
+.logo span{color:var(--green)}
+.nav{display:flex;gap:1.6rem;align-items:center}
+.nav a{padding-block:.3rem;border-bottom:2px solid transparent;transition:border-color .2s,color .2s}
+.nav a:hover,.nav a[aria-current="page"]{border-color:var(--green)}
+.has-sub{position:relative}
+.sub{position:absolute;top:100%;left:0;min-width:200px;background:#fff;border-radius:10px;box-shadow:var(--shadow);padding:.5rem;opacity:0;visibility:hidden;-webkit-transform:translateY(10px);transform:translateY(10px);transition:all .25s}
+.sub a{display:block;color:var(--ink);padding:.5rem .8rem;border-radius:8px;border:0}
+.sub a:hover{background:var(--bg);color:var(--green-d)}
+.has-sub:hover .sub,.has-sub:focus-within .sub{opacity:1;visibility:visible;-webkit-transform:none;transform:none}
+.menu-toggle{position:absolute;opacity:0;pointer-events:none}
+.burger{display:none;font-size:1.8rem;cursor:pointer}
+.btn{display:inline-block;background:var(--green);color:var(--navy);font:inherit;font-weight:600;border:2px solid var(--green);border-radius:10px;padding:.65rem 1.5rem;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{-webkit-transform:translateY(-3px) scale(1.03);transform:translateY(-3px) scale(1.03);box-shadow:0 8px 20px rgba(108,196,106,.45)}
+
+/* ===== CSS keyframes სლაიდერი ===== */
+.slider{position:relative;height:min(78vh,560px);overflow:hidden;background:var(--navy)}
+.slide{position:absolute;inset:0;display:flex;align-items:center;opacity:0;color:#fff;background-size:cover;background-position:center;animation:fade 18s infinite}
+.slide:nth-child(1){background-image:linear-gradient(120deg,rgba(46,52,103,.78),rgba(74,91,184,.48)),url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1800&q=85");animation-delay:0s}
+.slide:nth-child(2){background-image:linear-gradient(120deg,rgba(31,95,91,.78),rgba(59,165,139,.48)),url("https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=1800&q=85");animation-delay:6s}
+.slide:nth-child(3){background-image:linear-gradient(120deg,rgba(91,46,103,.78),rgba(162,79,184,.48)),url("https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1800&q=85");animation-delay:12s}
+.slide h1,.slide h2{color:#fff;font-size:clamp(2rem,5vw,3.4rem);text-shadow:0 3px 14px rgba(0,0,0,.4);margin-bottom:1rem}
+.slide p{max-width:46ch;margin-bottom:1.6rem;opacity:.92}
+@keyframes fade{0%{opacity:0}6%,31%{opacity:1}37%,100%{opacity:0}}
+
+/* ===== Grid ===== */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem}
+.card{background:#fff;border-radius:var(--r);padding:1.6rem;box-shadow:var(--shadow);transition:transform .25s}
+.card:hover{-webkit-transform:translateY(-8px) rotate(-.5deg);transform:translateY(-8px) rotate(-.5deg)}
+.card:first-child h3{color:var(--green-d)}
+.card h3{margin-bottom:.5rem;font-size:1.25rem}
+.card p{color:var(--muted);font-size:.95rem}
+.card .more{display:inline-block;margin-top:.8rem;color:var(--green-d);font-weight:600}
+.card .more:hover{text-decoration:underline}
+.thumb{height:140px;border-radius:10px;margin-bottom:1rem;background:linear-gradient(135deg,#cfd8ee,#eef1fa)}
+.card:nth-child(2n) .thumb{background:linear-gradient(135deg,#d3efe0,#eefaf3)}
+.card:nth-child(3n) .thumb{background:linear-gradient(135deg,#f3d9e6,#fbeef4)}
+time{font-size:.85rem;color:var(--muted)}
+.price{font-size:1.6rem;font-weight:700;color:var(--navy);margin:.4rem 0}
+.stats{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;margin-top:2rem}
+.stats li{text-align:center;flex:1 1 140px}
+.stats strong{display:block;font-family:var(--head);font-size:2.4rem;color:var(--navy)}
+.split{display:flex;gap:3rem;align-items:center;flex-wrap:wrap}
+.split>*{flex:1 1 320px}
+.visual{min-height:280px;border-radius:var(--r);background:linear-gradient(135deg,#8fb3d9,#dfeaf5);box-shadow:var(--shadow);-webkit-transform:rotate(-2deg);transform:rotate(-2deg)}
+.avatar{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:#fff;font-weight:700;font-size:1.3rem;margin-bottom:1rem}
+.cta{background:var(--navy);color:#fff;text-align:center;padding-block:3.5rem}
+.cta h2{color:#fff;margin-bottom:1.2rem}
+.page-head{background:var(--navy);color:#fff;padding-block:3rem}
+.page-head h1{color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.35)}
+.page-head p{opacity:.85}
+
+/* ===== ფორმები ===== */
+.form{background:#fff;border:1px solid #dfe2f0;border-radius:var(--r);padding:1.8rem;box-shadow:var(--shadow)}
+.field{margin-bottom:1rem}
+.field label,legend{display:block;font-weight:600;font-size:.92rem;margin-bottom:.3rem}
+.field input,.field select,.field textarea{width:100%;font:inherit;padding:.65rem .85rem;border:1px solid #b9bfd8;border-radius:10px;background:#fff;color:var(--ink);transition:border-color .2s,box-shadow .2s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--green-d);box-shadow:0 0 0 3px rgba(108,196,106,.3)}
+.field input:user-invalid,.field.bad input,.field.bad textarea{border-color:var(--red)}
+.field textarea{min-height:120px;resize:vertical}
+.err{display:block;color:var(--red);font-size:.85rem;min-height:1.1rem}
+.choices{display:flex;gap:1.5rem;flex-wrap:wrap;border:0;margin-bottom:1rem}
+.choices label,.check{display:flex;gap:.5rem;align-items:center;font-weight:400;margin-bottom:.6rem;cursor:pointer}
+input[type=radio],input[type=checkbox]{accent-color:var(--green-d);width:1.1rem;height:1.1rem}
+input:checked+span{color:var(--green-d);font-weight:600}
+.status{margin-top:1rem;font-weight:600;color:var(--green-d)}
+.info{background:var(--bg);border-radius:var(--r);padding:1.6rem}
+.info p{margin-bottom:.8rem;color:var(--muted)}
+.two{display:grid;grid-template-columns:1.4fr .8fr;gap:2.5rem;align-items:start}
+
+/* ===== Footer ===== */
+.site-footer{background:var(--navy-d);color:#c9cde6;padding-block:2.5rem;font-size:.92rem}
+.foot{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.foot ul{display:flex;gap:1.2rem;flex-wrap:wrap}
+.foot a:hover{color:#fff;text-decoration:underline}
+
+/* ===== რესპონსიულობა: ტელეფონი / პლანშეტი / ლეპტოპი / 2K-4K ===== */
+@media(max-width:850px){
+  .burger{display:block}
+  .nav-wrap{display:none;width:100%}
+  .menu-toggle:checked~.nav-wrap{display:block}
+  .nav{flex-direction:column;align-items:flex-start;gap:.8rem;padding-bottom:1rem}
+  .sub{position:static;opacity:1;visibility:visible;-webkit-transform:none;transform:none;background:transparent;box-shadow:none;padding:0 0 0 1rem}
+  .sub a{color:#c9cde6}
+  .two{grid-template-columns:1fr}
+  .section{padding-block:2.8rem}
+}
+@media(min-width:600px) and (max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1600px){html{font-size:118%}.wrap{width:min(1400px,88%)}}
+@media(min-width:2400px){html{font-size:150%}.wrap{width:min(1800px,86%)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.slide:first-child{opacity:1}}

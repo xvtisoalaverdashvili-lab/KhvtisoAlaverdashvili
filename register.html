@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Register | MedicalBetter</title>
+<meta name="description" content="Create a MedicalBetter account to book visits and receive your test results.">
+<meta name="keywords" content="register, sign up, patient account, online booking">
+<meta name="author" content="MedicalBetter">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#2e3467">
+<meta property="og:title" content="Register | MedicalBetter">
+<meta property="og:description" content="Create a MedicalBetter account to book visits and receive your test results.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://USERNAME.github.io/REPO/register.html">
+<meta property="og:image" content="https://USERNAME.github.io/REPO/images/og-cover.jpg">
+<meta property="og:site_name" content="MedicalBetter">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+<div class="wrap bar">
+<a class="logo" href="index.html">Medical<span>Better</span></a>
+<input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
+<label for="menu-toggle" class="burger" aria-hidden="true">&#9776;</label>
+<div class="nav-wrap"><nav aria-label="Main"><ul class="nav"><li><a href="index.html">Home</a></li><li><a href="about.html">About us</a></li><li class="has-sub"><a href="services.html">Services &#9662;</a><ul class="sub"><li><a href="services.html#consultation">Consultation</a></li><li><a href="services.html#laboratory">Laboratory</a></li><li><a href="services.html#surgery">Surgery</a></li></ul></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact us</a></li><li><a class="btn" href="register.html" aria-current="page">Register</a></li></ul></nav></div>
+</div>
+</header>
+<section class="page-head"><div class="wrap"><h1>Create an account</h1><p>Register to book visits and see your results</p></div></section>
+<main>
+<section class="section"><div class="wrap" style="max-width:640px">
+<form class="form js-form" action="#" method="post">
+<div class="field"><label for="user">Username *</label><input type="text" id="user" name="username" autocomplete="username" required minlength="3"></div>
+<div class="field"><label for="mail">Email *</label><input type="email" id="mail" name="email" autocomplete="email" required></div>
+<div class="field"><label for="pw">Password *</label><input type="password" id="pw" name="password" autocomplete="new-password" required minlength="8"></div>
+<div class="field"><label for="pw2">Confirm password *</label><input type="password" id="pw2" name="confirm" autocomplete="new-password" required></div>
+<fieldset class="choices"><legend>I am a</legend>
+<label><input type="radio" name="role" value="patient" checked><span>Patient</span></label>
+<label><input type="radio" name="role" value="doctor"><span>Doctor</span></label></fieldset>
+<label class="check"><input type="checkbox" name="news"><span>Send me health news</span></label>
+<label class="check"><input type="checkbox" name="terms" required><span>I accept the terms and conditions *</span></label>
+<button class="btn" type="submit">Register</button><p class="status" role="status"></p>
+</form></div></section>
+</main>
+<footer class="site-footer">
+<div class="wrap foot">
+<p>&copy; 2026 MedicalBetter. All rights reserved.</p>
+<ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul>
+</div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
