@@ -1,258 +1,491 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ka">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MedicalBetter | A Great Place to Receive Care</title>
-  <meta name="description" content="MedicalBetter is a modern clinic focused on helping you and your child. Book an online appointment and meet our specialist doctors.">
-  <meta name="keywords" content="medical clinic, online appointment, doctor consultation, emergency care, pediatrician, specialist doctors, book appointment, health care">
-  <meta name="author" content="MedicalBetter">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#2e3467">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ბლაუგრანა | ბარსელონას ფანების საიტი</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;700&display=swap" rel="stylesheet">
 
-  <meta property="og:title" content="MedicalBetter | A Great Place to Receive Care">
-  <meta property="og:description" content="Book an online appointment and meet our specialist doctors.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://example.com/index.html">
-  <meta property="og:image" content="https://example.com/images/og-cover.jpg">
-  <meta property="og:site_name" content="MedicalBetter">
+<style>
+/* CSS ცვლადები */
+:root {
+  --blue: #004d98;
+  --garnet: #a50044;
+  --gold: #edbb00;
+  --bg: #f4f6fb;
+  --text: #1b1f2a;
+  --radius: 12px;
+}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+* { box-sizing: border-box; margin: 0; }
+html { scroll-behavior: smooth; }
 
-  <style>
-    :root{--navy:#2e3467;--navy-dark:#232851;--green:#6cc46a;--green-dark:#4fa84d;--text:#2b2f4a;--muted:#6b7090;--bg:#f6f7fb;--red:#e5484d}
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{font-family:"Poppins","Segoe UI",Arial,sans-serif;color:var(--text);background:#fff;line-height:1.6}
-    a{text-decoration:none;color:inherit}
-    :focus-visible{outline:3px solid #f2b705;outline-offset:2px}
-    .wrap{width:min(1100px,92%);margin-inline:auto}
+body {
+  font-family: "Noto Sans Georgian", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
 
-    /* page switching */
-    body[data-page="home"] .only-contact{display:none}
-    body[data-page="contact"] .only-home{display:none}
+a { color: inherit; }
 
-    /* header + hero */
-    .top{background:var(--navy);color:#fff}
-    .nav-bar{display:flex;align-items:center;gap:2rem;padding-block:1.1rem;flex-wrap:wrap}
-    .logo{font-weight:700;font-size:1.2rem;margin-right:auto}
-    .nav{display:flex;gap:1.75rem;list-style:none;font-size:.95rem}
-    .nav a{opacity:.85;padding-bottom:3px;border-bottom:2px solid transparent}
-    .nav a:hover,.nav a[aria-current="page"]{opacity:1;border-color:var(--green)}
-    .btn{display:inline-block;background:var(--green);color:#fff;font:inherit;font-weight:600;border:2px solid var(--green);border-radius:8px;padding:.65rem 1.5rem;cursor:pointer}
-    .btn:hover{background:var(--green-dark);border-color:var(--green-dark)}
-    .btn-line{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
-    .btn-line:hover{background:rgba(255,255,255,.12);border-color:#fff}
-    .hero{padding-block:3.5rem 5rem}
-    .hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-    .eyebrow{color:var(--green);font-size:.85rem;font-weight:600;margin-bottom:.5rem}
-    .hero h1{font-size:clamp(2rem,4.5vw,3.1rem);line-height:1.2;margin-bottom:1rem}
-    .hero p:not(.eyebrow){opacity:.85;margin-bottom:1.75rem;max-width:42ch}
-    .hero .btns{display:flex;gap:1rem;flex-wrap:wrap}
-    .hero-img{aspect-ratio:4/3;border-radius:18px;background:linear-gradient(135deg,#8fb3d9,#dfeaf5);display:grid;place-items:center}
-    .hero-img svg{width:34%;opacity:.7}
-    .page-title{padding-block:2.5rem 3.5rem}
-    .page-title h1{font-size:2.2rem}
+/* ჰედერი (flexbox) */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 5%;
+  background: linear-gradient(90deg, var(--blue), var(--garnet));
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
 
-    /* sections */
-    .section{padding-block:4.5rem}
-    .section h2{font-size:1.8rem;color:var(--navy);margin-bottom:.4rem}
-    .section .sub{color:var(--muted);max-width:55ch;margin-bottom:2.5rem}
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
-    .card{background:#fff;border-radius:12px;padding:1.6rem;box-shadow:0 8px 28px rgba(46,52,103,.1)}
-    .card .ico{width:42px;height:42px;border-radius:10px;background:#e8ebff;margin-bottom:1rem}
-    .card h3{font-size:1rem;color:var(--navy);margin-bottom:.4rem}
-    .card p{font-size:.88rem;color:var(--muted)}
-    .card.active{background:var(--green)}
-    .card.active h3,.card.active p{color:#fff}
-    .card.active .ico{background:rgba(255,255,255,.3)}
-    .doctors{background:var(--bg)}
-    .doc{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 8px 28px rgba(46,52,103,.08)}
-    .doc .photo{position:relative;aspect-ratio:1/1;background:linear-gradient(135deg,#cfd8ee,#eef1fa)}
-    .badge{position:absolute;top:.6rem;left:.6rem;background:var(--red);color:#fff;font-size:.7rem;padding:.1rem .6rem;border-radius:4px}
-    .doc .body{padding:1rem 1.1rem 1.2rem}
-    .doc small{color:var(--green-dark);font-weight:600}
-    .doc h3{font-size:1rem;color:var(--navy)}
-    .doc p{font-size:.85rem;color:var(--muted);margin:.3rem 0 .6rem}
-    .doc .meta{display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:.8rem}
-    .doc .price{color:#3d4cd6;font-weight:600}
-    .btn-out{display:inline-block;border:1px solid var(--green);color:var(--green-dark);border-radius:20px;padding:.2rem 1rem;font-size:.82rem}
-    .btn-out:hover{background:var(--green);color:#fff}
+.logo {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-decoration: none;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
 
-    /* contact form */
-    .contact{display:grid;grid-template-columns:1.4fr .8fr;gap:3rem}
-    fieldset{border:1px solid #dfe2f0;border-radius:12px;padding:1.6rem}
-    legend{font-weight:600;color:var(--navy);padding-inline:.5rem}
-    .field{margin-bottom:1rem}
-    .field label{display:block;font-weight:600;font-size:.9rem;margin-bottom:.25rem}
-    .req{color:var(--red)}
-    .field input,.field select,.field textarea{width:100%;font:inherit;padding:.6rem .8rem;border:1px solid #c5cae0;border-radius:8px;color:var(--text);background:#fff}
-    .field textarea{min-height:120px;resize:vertical}
-    .field input:user-invalid,.field textarea:user-invalid{border-color:var(--red)}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-    .consent{display:flex;gap:.6rem;margin-bottom:1.2rem;font-size:.9rem}
-    .info{background:var(--bg);border-radius:12px;padding:1.6rem;align-self:start}
-    .info h3{color:var(--navy);margin-bottom:.8rem}
-    .info p{margin-bottom:.7rem;color:var(--muted);font-size:.92rem}
+nav { display: flex; gap: 6px; flex-wrap: wrap; }
 
-    /* footer */
-    .foot{background:var(--navy-dark);color:#c9cde6;padding-block:2rem;font-size:.9rem}
-    .foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  display: block;
+  transition: background 0.3s, color 0.3s;
+}
 
-    @media(max-width:800px){.hero .wrap,.contact,.row{grid-template-columns:1fr}.nav-bar{gap:1rem}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-  </style>
+nav a:hover,
+nav a:focus {
+  background: var(--gold);
+  color: var(--text);
+}
+
+/* ჩამოსაშლელი მენიუ */
+.dropdown { position: relative; }
+
+.menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  min-width: 170px;
+  background: var(--blue);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown:hover .menu,
+.dropdown:focus-within .menu { display: block; }
+
+/* გვერდების გადართვა JavaScript-ის გარეშე (:target) */
+.page { display: none; scroll-margin-top: 80px; }
+.page:target { display: block; }
+.page:target ~ #home { display: none; }
+#home { display: block; }
+
+/* ფოტო სლაიდერი (CSS keyframes) */
+.slider { overflow: hidden; width: 100%; }
+
+.photo-credits {
+  padding: 8px 5%;
+  color: #4c5365;
+  background: #fff;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.photo-credits a { color: var(--blue); }
+
+.track {
+  display: flex;
+  width: 300%;
+  animation: slide 15s infinite;
+}
+
+.track:hover { animation-play-state: paused; }
+
+.slide {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(135deg, var(--blue), var(--garnet));
+}
+
+.slide img {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+.slide figcaption {
+  position: absolute;
+  left: 5%;
+  bottom: 30px;
+  color: #fff;
+  font-size: clamp(1.6rem, 5vw, 3rem);
+  font-weight: 700;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+}
+
+@keyframes slide {
+  0%, 28%  { transform: translateX(0); }
+  33%, 61% { transform: translateX(-33.333%); }
+  66%, 95% { transform: translateX(-66.666%); }
+  100%     { transform: translateX(0); }
+}
+
+/* კონტენტი (grid) */
+.container { padding: 50px 5%; max-width: 1200px; margin: auto; }
+.narrow { max-width: 800px; }
+
+/* გრადიენტული ტექსტი */
+.title {
+  display: inline-block;
+  margin-bottom: 24px;
+  background: linear-gradient(90deg, var(--blue), var(--garnet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: #fff;
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+.card h3 { margin-bottom: 8px; }
+.card:nth-child(odd) h3 { color: var(--blue); }
+.card:nth-child(even) h3 { color: var(--garnet); }
+
+.num {
+  float: right;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 10px 22px;
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  text-decoration: none;
+  font: inherit;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.btn:hover,
+.btn:focus {
+  background: var(--garnet);
+  transform: scale(1.08);
+}
+
+.container p { margin-bottom: 14px; }
+
+.facts {
+  display: block;
+  list-style: none;
+  font-style: normal;
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 10px 20px;
+  margin-bottom: 24px;
+}
+
+.facts li,
+.facts p { padding: 8px 0; margin: 0; border-bottom: 1px solid #e2e6ef; }
+.facts li:last-child,
+.facts p:last-child { border-bottom: none; }
+
+.post {
+  background: #fff;
+  padding: 22px;
+  border-radius: var(--radius);
+  margin-bottom: 20px;
+  border-top: 4px solid var(--garnet);
+}
+
+.post:first-of-type { border-top-color: var(--gold); }
+.post time { color: #667; font-size: 0.9rem; }
+
+/* ფორმა */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #fff;
+  padding: 28px;
+  border-radius: var(--radius);
+  margin-top: 12px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+  padding: 10px;
+  border: 2px solid #ccd;
+  border-radius: 8px;
+  font: inherit;
+  transition: border-color 0.3s;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--blue);
+}
+
+input:invalid:not(:placeholder-shown) { border-color: var(--garnet); }
+input:valid:not(:placeholder-shown) { border-color: #1a7f37; }
+
+fieldset { border: none; display: flex; gap: 16px; flex-wrap: wrap; }
+.check { display: flex; gap: 8px; }
+
+/* ფუტერი */
+.site-footer {
+  background: #14182a;
+  color: #cfd4e6;
+  text-align: center;
+  padding: 24px 5%;
+  font-size: 0.9rem;
+}
+
+/* ადაპტური დიზაინი: 2K/4K, ლეპტოპი, ტაბლეტი, ტელეფონი */
+@media (min-width: 2560px) {
+  body { font-size: 1.35rem; }
+  .container { max-width: 1900px; }
+  .narrow { max-width: 1200px; }
+  .slide img { height: 640px; }
+}
+
+@media (min-width: 1920px) and (max-width: 2559px) {
+  body { font-size: 1.15rem; }
+  .container { max-width: 1500px; }
+}
+
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .site-header { justify-content: center; }
+  .slide img { height: 300px; }
+  .menu { position: static; background: transparent; box-shadow: none; }
+}
+
+@media (max-width: 480px) {
+  .grid { grid-template-columns: 1fr; }
+  .container { padding: 30px 5%; }
+  .slide img { height: 220px; }
+  nav { justify-content: center; }
+}
+</style>
 </head>
-<body data-page="home">
 
-<!-- ========== HEADER (ორივე გვერდზე საერთო) ========== -->
-<div class="top">
-  <header class="wrap nav-bar">
-    <a class="logo" href="#home">MedicalBetter</a>
-    <nav aria-label="Main">
-      <ul class="nav">
-        <li><a href="#home" id="nav-home" aria-current="page">Home</a></li>
-        <li><a href="#appointment">Services</a></li>
-        <li><a href="#doctors">Doctors</a></li>
-        <li><a href="#contact" id="nav-contact">Contact</a></li>
-      </ul>
-    </nav>
-    <a class="btn" href="#booking">Join us</a>
-  </header>
+<body>
 
-  <!-- გვერდი 1: ჰერო -->
-  <section class="hero only-home">
-    <div class="wrap">
-      <div>
-        <p class="eyebrow">For better health</p>
-        <h1>A Great Place to Receive Care</h1>
-        <p>We are always fully focused on helping your child and you.</p>
-        <div class="btns">
-          <a class="btn" href="#booking">Book Now</a>
-          <a class="btn btn-line" href="#appointment">Learn More</a>
-        </div>
+<header class="site-header">
+  <a class="logo" href="#home">⚽ ბლაუგრანა</a>
+  <nav>
+    <a href="#home">მთავარი</a>
+    <div class="dropdown">
+      <a href="#about">კლუბი ▾</a>
+      <div class="menu">
+        <a href="#about">ისტორია</a>
+        <a href="#legends">ლეგენდები</a>
       </div>
-      <!-- სურათის დასამატებლად ჩაანაცვლეთ: <img src="hero.jpg" alt="Doctor using a microscope"> -->
-      <div class="hero-img" role="img" aria-label="Doctor using a microscope">
-        <svg viewBox="0 0 24 24" fill="#fff"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/></svg>
+    </div>
+    <a href="#blog">ბლოგი</a>
+    <a href="#contact">კონტაქტი</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- გვერდი 2: ისტორია -->
+  <section class="page" id="about">
+    <div class="container narrow">
+      <h1 class="title">კლუბის ისტორია</h1>
+      <p>ბარსელონა დაარსდა 1899 წლის 29 ნოემბერს, ჯოან გამპერის ინიციატივით. დროთა განმავლობაში კლუბმა სპორტულ ორგანიზაციაზე მეტი გახდა და მისი დევიზი «Més que un club» ("კლუბზე მეტი") დაიმკვიდრა.</p>
+      <p>კლუბის ფერებია ცისფერი და ბორდო (ბლაუგრანა), სახლის სტადიონი კი კამპ ნოუა. ახალგაზრდული აკადემია La Masia ბევრი ცნობილი ფეხბურთელის სახელს უკავშირდება.</p>
+      <h2>მოკლედ</h2>
+      <ul class="facts">
+        <li><strong>დაარსება:</strong> 1899</li>
+        <li><strong>ქალაქი:</strong> ბარსელონა, კატალონია</li>
+        <li><strong>სტადიონი:</strong> კამპ ნოუ</li>
+        <li><strong>ჩემპიონთა ლიგა:</strong> 5 ტიტული (1992, 2006, 2009, 2011, 2015)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- გვერდი 3: ლეგენდები -->
+  <section class="page" id="legends">
+    <div class="container">
+      <h1 class="title">ლეგენდები</h1>
+      <div class="grid">
+        <article class="card">
+          <span class="num">14</span>
+          <h3>ჯოან კრუიფი</h3>
+          <p>ფეხბურთელი და მწვრთნელი, რომელმაც კლუბში ტოტალური ფეხბურთის ფილოსოფია დაამკვიდრა.</p>
+        </article>
+        <article class="card">
+          <span class="num">10</span>
+          <h3>ლიონელ მესი</h3>
+          <p>კლუბის ისტორიაში ყველაზე მეტი გოლის ავტორი და თაობის სიმბოლო.</p>
+        </article>
+        <article class="card">
+          <span class="num">6</span>
+          <h3>ქავი ერნანდესი</h3>
+          <p>შუა ხაზის დირიჟორი, რომლის პასებზეც ბარსელონას თამაში იგებოდა.</p>
+        </article>
+        <article class="card">
+          <span class="num">8</span>
+          <h3>ანდრეს ინიესტა</h3>
+          <p>ელეგანტური ნახევარმცველი, რომელმაც 2010 წლის მსოფლიო ჩემპიონატის ფინალში გადამწყვეტი გოლი გაიტანა.</p>
+        </article>
+        <article class="card">
+          <span class="num">5</span>
+          <h3>კარლეს პუიოლი</h3>
+          <p>ლიდერი კაპიტანი და ერთგულების მაგალითი.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- გვერდი 2: სათაური -->
-  <div class="wrap page-title only-contact"><p class="eyebrow">Get in touch</p><h1>Book an Appointment</h1></div>
-</div>
-
-<main>
-  <!-- ========== გვერდი 1: მთავარი ========== -->
-  <div class="only-home">
-    <section class="section" id="appointment">
-      <div class="wrap">
-        <p class="eyebrow">Our services</p>
-        <h2>Online Appointment</h2>
-        <p class="sub">Choose the care you need and book a time that suits you in a few clicks.</p>
-        <div class="cards">
-          <article class="card"><div class="ico"></div><h3>Emergency Care</h3><p>Fast help for urgent cases, available during working hours.</p></article>
-          <article class="card"><div class="ico"></div><h3>Doctor Plan</h3><p>A personal treatment plan prepared by your doctor.</p></article>
-          <article class="card active"><div class="ico"></div><h3>Smooth Surgeons</h3><p>Experienced surgeons and a safe, well-organised process.</p></article>
-          <article class="card"><div class="ico"></div><h3>Book Now</h3><p>Pick a doctor and a date directly on our website.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section doctors" id="doctors">
-      <div class="wrap">
-        <p class="eyebrow">Our team</p>
-        <h2>Our Doctors Specialize in You</h2>
-        <p class="sub">Meet specialists who treat every patient with time and attention.</p>
-        <div class="cards">
-          <article class="doc">
-            <div class="photo" role="img" aria-label="Dr. Anna Brown"><span class="badge">New</span></div>
-            <div class="body"><small>Therapist</small><h3>Dr. Anna Brown</h3><p>General check-ups and treatment plans.</p>
-              <div class="meta"><span>10 years</span><span class="price">$8.00</span></div><a class="btn-out" href="#booking">Learn More</a></div>
-          </article>
-          <article class="doc">
-            <div class="photo" role="img" aria-label="Dr. Mark Lee"><span class="badge">New</span></div>
-            <div class="body"><small>Cardiologist</small><h3>Dr. Mark Lee</h3><p>Heart health checks and ECG.</p>
-              <div class="meta"><span>15 years</span><span class="price">$12.00</span></div><a class="btn-out" href="#booking">Learn More</a></div>
-          </article>
-          <article class="doc">
-            <div class="photo" role="img" aria-label="Dr. Sara Klein"><span class="badge">New</span></div>
-            <div class="body"><small>Pediatrician</small><h3>Dr. Sara Klein</h3><p>Care for babies, kids and teens.</p>
-              <div class="meta"><span>9 years</span><span class="price">$9.00</span></div><a class="btn-out" href="#booking">Learn More</a></div>
-          </article>
-          <article class="doc">
-            <div class="photo" role="img" aria-label="Dr. John Reed"><span class="badge">New</span></div>
-            <div class="body"><small>Eye specialist</small><h3>Dr. John Reed</h3><p>Vision tests and eye treatment.</p>
-              <div class="meta"><span>12 years</span><span class="price">$10.00</span></div><a class="btn-out" href="#booking">Learn More</a></div>
-          </article>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ========== გვერდი 2: კონტაქტი ========== -->
-  <div class="section only-contact">
-    <div class="wrap contact">
-      <form id="booking" action="#" method="post">
-        <fieldset>
-          <legend>Appointment form</legend>
-          <div class="row">
-            <div class="field"><label for="fn">First name <span class="req">*</span></label><input type="text" id="fn" name="first_name" autocomplete="given-name" required minlength="2"></div>
-            <div class="field"><label for="ln">Last name <span class="req">*</span></label><input type="text" id="ln" name="last_name" autocomplete="family-name" required minlength="2"></div>
-          </div>
-          <div class="row">
-            <div class="field"><label for="phone">Phone <span class="req">*</span></label><input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+995 5XX XX XX XX" pattern="[+0-9 ]{9,16}" required></div>
-            <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" autocomplete="email" placeholder="name@example.com"></div>
-          </div>
-          <div class="row">
-            <div class="field"><label for="service">Service <span class="req">*</span></label>
-              <select id="service" name="service" required>
-                <option value="" selected disabled>Choose</option>
-                <option>Emergency Care</option><option>Doctor Plan</option><option>Surgery</option><option>Consultation</option>
-              </select></div>
-            <div class="field"><label for="date">Preferred date <span class="req">*</span></label><input type="date" id="date" name="date" required></div>
-          </div>
-          <div class="field"><label for="msg">Message</label><textarea id="msg" name="message" maxlength="500" placeholder="Briefly describe your problem (optional)"></textarea></div>
-          <div class="consent"><input type="checkbox" id="consent" name="consent" required><label for="consent">I agree to the processing of my personal data <span class="req">*</span></label></div>
-          <button type="submit" class="btn">Send request</button>
-        </fieldset>
-      </form>
-
-      <aside class="info" aria-labelledby="ci">
-        <h3 id="ci">Contact information</h3>
-        <p><strong>Address:</strong><br>1 Rustaveli Ave, Tbilisi</p>
-        <p><strong>Phone:</strong><br><a href="tel:+995322000000">+995 32 200 00 00</a></p>
-        <p><strong>Email:</strong><br><a href="mailto:info@example.com">info@example.com</a></p>
-        <p><strong>Working hours:</strong><br>Mon–Fri 09:00–20:00<br>Sat 10:00–16:00</p>
-      </aside>
+  <!-- გვერდი 4: ბლოგი -->
+  <section class="page" id="blog">
+    <div class="container narrow">
+      <h1 class="title">ბლოგი</h1>
+      <article class="post">
+        <h2>რა არის ტიკი-ტაკა?</h2>
+        <time datetime="2026-10-01">1 ოქტომბერი, 2026</time>
+        <p>მოკლე პასებით თამაში, ბურთის კონტროლი და მოწინააღმდეგის დაღლა. ეს სტილი ბარსელონას ბრენდად იქცა.</p>
+      </article>
+      <article class="post">
+        <h2>La Masia: ტალანტების სახელოსნო</h2>
+        <time datetime="2026-10-08">8 ოქტომბერი, 2026</time>
+        <p>აკადემიაში ბავშვები ფეხბურთთან ერთად ხასიათსა და გუნდურობასაც სწავლობენ.</p>
+      </article>
+      <article class="post">
+        <h2>მატჩის დღე</h2>
+        <time datetime="2026-10-15">15 ოქტომბერი, 2026</time>
+        <p>სტადიონისკენ მიმავალი ფანები, ჰიმნი და ტრიბუნების ხმაური. სწორედ ეს ქმნის განსაკუთრებულ ატმოსფეროს.</p>
+      </article>
     </div>
-  </div>
+  </section>
+
+  <!-- გვერდი 5: კონტაქტი + რეგისტრაცია -->
+  <section class="page" id="contact">
+    <div class="container narrow">
+      <h1 class="title">დაგვიკავშირდი</h1>
+      <address class="facts">
+        <p><strong>ელფოსტა:</strong> info@example.com</p>
+        <p><strong>ქალაქი:</strong> თბილისი</p>
+      </address>
+
+      <h2>ფანკლუბში რეგისტრაცია</h2>
+      <form action="#contact" method="get">
+        <label for="name">სახელი</label>
+        <input id="name" name="name" type="text" placeholder="შენი სახელი" required minlength="2">
+
+        <label for="email">ელფოსტა</label>
+        <input id="email" name="email" type="email" placeholder="name@example.com" required>
+
+        <label for="pass">პაროლი</label>
+        <input id="pass" name="pass" type="password" placeholder="მინიმუმ 6 სიმბოლო" required minlength="6">
+
+        <label for="era">საყვარელი ეპოქა</label>
+        <select id="era" name="era" required>
+          <option value="">აირჩიე...</option>
+          <option>კრუიფის დრიმ თიმი</option>
+          <option>გვარდიოლას ბარსა</option>
+          <option>ახალი თაობა</option>
+        </select>
+
+        <fieldset>
+          <legend>ხშირად უყურებ მატჩებს?</legend>
+          <label><input type="radio" name="watch" value="yes" required> დიახ</label>
+          <label><input type="radio" name="watch" value="no"> არა</label>
+        </fieldset>
+
+        <label class="check"><input type="checkbox" name="news"> მინდა სიახლეების მიღება</label>
+        <label class="check"><input type="checkbox" name="agree" required> ვეთანხმები წესებს</label>
+
+        <button class="btn" type="submit">რეგისტრაცია</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- გვერდი 1: მთავარი (ბოლოშია, რომ ნაგულისხმევად ჩანდეს) -->
+  <section class="page" id="home">
+    <div class="slider" aria-label="ფოტო სლაიდერი">
+      <div class="track">
+        <figure class="slide"><img src="images/1.jpg" alt="კამპ ნოუს სტადიონის გარე ხედი"><figcaption>Camp Nou</figcaption></figure>
+        <figure class="slide"><img src="images/2.jpg" alt="ფეხბურთის ბურთი მინდორზე, სტადიონის ტრიბუნების ფონზე"><figcaption>Més que un club</figcaption></figure>
+        <figure class="slide"><img src="images/3.jpg" alt="ფეხბურთის ბურთი მწვანე მოედანზე"><figcaption>ფეხბურთის სიყვარული</figcaption></figure>
+      </div>
+    </div>
+    <p class="photo-credits">ფოტო 1: <a href="https://commons.wikimedia.org/wiki/File:2014._Camp_Nou._M%C3%A9s_que_un_club._Barcelona_B40.jpg">Luis Miguel Bugallo Sánchez</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>. ფოტოები 2–3: <a href="https://www.pexels.com/photo/three-men-playing-soccer-274422/">Pixabay / Pexels</a> და <a href="https://www.pexels.com/photo/soccer-ball-on-grass-field-during-daytime-46798/">Pixabay / Pexels</a>.
+    </p>
+
+    <div class="container">
+      <h2 class="title">გაიცანი ბარსელონა</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>ისტორია</h3>
+          <p>1899 წლიდან დღემდე: როგორ გახდა ბარსელონა მსოფლიოს უდიდეს კლუბთაგან ერთ-ერთი.</p>
+          <a class="btn" href="#about">წაიკითხე</a>
+        </article>
+        <article class="card">
+          <h3>ლეგენდები</h3>
+          <p>კრუიფი, მესი, ქავი, ინიესტა და სხვები, ვინც კლუბის ისტორია შექმნა.</p>
+          <a class="btn" href="#legends">გაიცანი</a>
+        </article>
+        <article class="card">
+          <h3>ბლოგი</h3>
+          <p>ტიკი-ტაკა, La Masia და მატჩის დღის განუმეორებელი ატმოსფერო.</p>
+          <a class="btn" href="#blog">იხილე</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-<footer class="foot">
-  <div class="wrap"><p>&copy; 2026 MedicalBetter. All rights reserved.</p><p><a href="mailto:info@example.com">info@example.com</a></p></div>
+<footer class="site-footer">
+  <p>Més que un club · ბარსელონას გულშემატკივართა საიტი · 2026</p>
+  <p>სასწავლო პროექტი. საიტი არ არის კლუბის ოფიციალური გვერდი.</p>
 </footer>
-
-<!-- გვერდებს შორის გადართვა -->
-<script>
-  function route() {
-    var h = location.hash;
-    var isContact = (h === '#contact' || h === '#booking');
-    document.body.dataset.page = isContact ? 'contact' : 'home';
-    document.title = isContact
-      ? 'Contact & Book an Appointment | MedicalBetter'
-      : 'MedicalBetter | A Great Place to Receive Care';
-    document.getElementById('nav-home').toggleAttribute('aria-current', !isContact);
-    document.getElementById('nav-contact').toggleAttribute('aria-current', isContact);
-    if (isContact || !h || h === '#home') { window.scrollTo(0, 0); }
-    else { var el = document.querySelector(h); if (el) el.scrollIntoView(); }
-  }
-  window.addEventListener('hashchange', route);
-  route();
-</script>
 
 </body>
 </html>
